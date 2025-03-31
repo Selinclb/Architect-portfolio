@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mimar Portfolyosu by Selin Çelebi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="page-transition"></div>
+    <main>
+        <div class="year">2025</div>
+        <a href="works.html" class="works">WORKS</a>
+        <div class="portfolio-container">
+            <svg class="circle-svg" viewBox="0 0 400 300">
+                <defs>
+                    <filter id="roughness">
+                        <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="2" result="turbulence"/>
+                        <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="1" />
+                    </filter>
+                </defs>
+                <path class="circle-path" d="
+                    M30,80 
+                    C30,20 370,20 370,100
+                    C370,180 30,180 30,100
+                    C30,20 370,20 370,100
+                    C370,180 30,180 30,100
+                    C50,120 120,140 100,180
+                    C80,220 160,200 180,240
+                    L160,230 L180,250 L200,230" />
+            </svg>
+            <div class="portfolio-text">portfolio</div>
+        </div>
+        <div class="description">Estetik ile işlevselliği bir araya getir, detaylarla fark yarat, yenilikçi fikirler üret, kaliteyi elinde tut!</div>
+        <div class="title">İÇ MİMAR</div>
+    </main>
+
+    <div class="contact-trigger">CONTACT</div>
+
+    <div class="contact-panel">
+        <div class="contact-close"></div>
+        <div class="contact-header">
+            <h2>İletişime Geçin</h2>
+            <p>Projeleriniz için benimle iletişime geçebilirsiniz.</p>
+        </div>
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">İsim</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-posta</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Mesaj</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Gönder</button>
+        </form>
+    </div>
+
+    <script src="sketch.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const worksLink = document.querySelector('.works');
+            const transition = document.querySelector('.page-transition');
+
+            worksLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = worksLink.getAttribute('href');
+                
+                transition.classList.add('active');
+                
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 500);
+            });
+
+            const contactTrigger = document.querySelector('.contact-trigger');
+            const contactPanel = document.querySelector('.contact-panel');
+            const contactClose = document.querySelector('.contact-close');
+            const contactForm = document.querySelector('.contact-form');
+
+            contactTrigger.addEventListener('click', () => {
+                contactPanel.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+
+            contactClose.addEventListener('click', () => {
+                contactPanel.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Mesajınız gönderildi!');
+                contactPanel.classList.remove('active');
+                document.body.style.overflow = '';
+                contactForm.reset();
+            });
+        });
+    </script>
+</body>
+</html> 

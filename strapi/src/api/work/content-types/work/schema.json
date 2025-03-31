@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "works",
+  "info": {
+    "singularName": "work",
+    "pluralName": "works",
+    "displayName": "Work",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Proje_Adi": {
+      "type": "string"
+    },
+    "Proje_Gorselleri": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Proje_yili": {
+      "type": "string"
+    },
+    "Proje_Aciklamasi": {
+      "type": "richtext"
+    },
+    "Konum": {
+      "type": "string"
+    }
+  }
+}

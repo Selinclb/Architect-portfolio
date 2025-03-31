@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeler | Fulya Akın</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="works.css">
+</head>
+<body>
+    <div class="page-transition"></div>
+    <h1 class="page-title">PROJELER</h1>
+
+    <div class="hero-section">
+        <div class="swiper hero-slider">
+            <div class="swiper-wrapper">
+                <!-- Slider içeriği JavaScript ile eklenecek -->
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+        <div class="scroll-indicator">
+            <span>SCROLL</span>
+            <div class="scroll-line"></div>
+        </div>
+    </div>
+
+    <main class="projects-container">
+        <!-- Projeler buraya dinamik olarak eklenecek -->
+    </main>
+
+    <div class="back-button">
+        <a href="index.html">GERİ</a>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="works.js"></script>
+    <script>
+        // Sayfa yüklendiğinde geçiş animasyonunu kaldır
+        document.addEventListener('DOMContentLoaded', function() {
+            const transition = document.querySelector('.page-transition');
+            setTimeout(() => {
+                transition.classList.add('fade-out');
+            }, 100);
+        });
+
+        // Geri butonuna tıklandığında geçiş animasyonunu başlat
+        document.querySelector('.back-button a').addEventListener('click', function(e) {
+            e.preventDefault();
+            const href = this.getAttribute('href');
+            const transition = document.querySelector('.page-transition');
+            
+            transition.classList.remove('fade-out');
+            
+            setTimeout(() => {
+                window.location.href = href;
+            }, 500);
+        });
+    </script>
+</body>
+</html> 
